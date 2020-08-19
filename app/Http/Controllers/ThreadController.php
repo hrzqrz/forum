@@ -14,7 +14,8 @@ class ThreadController extends Controller
      */
     public function index()
     {
-        //
+        $threads = Thread::latest()->paginate(30);
+        return view('threads.index')->with('threads', $threads);
     }
 
     /**
@@ -46,7 +47,8 @@ class ThreadController extends Controller
      */
     public function show(Thread $thread)
     {
-        //
+        //dd($thread);
+        return view('threads.show')->with('thread', $thread);
     }
 
     /**
